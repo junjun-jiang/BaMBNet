@@ -1,0 +1,61 @@
+name: BaMBNet_TRAINV1
+use_tb_logger: true
+model: BaMBNet # reconstruct Camera response function network
+
+dataset:
+  train:
+    name: train
+    dataroot: ~/Documents/deblur/CanonDeblur/dd_dp_dataset_canon_patch
+    filter:
+    trainpairs: data/canon_deblur_train_data.txt
+    batch_size: 2
+    image_size: 512
+    max_iter: 40
+    iter_size: 1
+    workers: 4
+    left_name: train_l/source
+    right_name: train_r/source
+    combine_name: train_c/target
+    blur_name: ~/Documents/deblur/CanonDeblur/dd_dp_dataset_canon_patch/train_b/source
+
+  val:
+    name: val
+    dataroot: ~/Documents/deblur/CanonDeblur/dd_dp_dataset_canon_patch
+    batch_size: 1
+    workers: 1
+    left_name: val_l/source
+    right_name: val_r/source
+    combine_name: val_c/target
+    blur_name: ~/Documents/deblur/CanonDeblur/dd_dp_dataset_canon_patch/val_b/source
+
+network_G:
+  in_nc: 3
+  block_num: 2
+  init: xavier
+  hidden_channels: 128
+  K: 4
+
+path:
+  pretrain_model_G: ~
+  strict_load: true
+  resume_state: ~
+
+logger:
+  print_freq: 10
+  save_checkpoint_freq: 20 #!!float 5e3
+
+train:
+  lr: !!float 2e-4
+  beta1: 0.9
+  beta2: 0.999
+  max_grad_norm: 20
+  max_grad_clip: 20
+  niter: 500000
+  epoch: 100
+
+  lr_steps: [30, 60, 90, 120]
+  lr_gamma: 0.5
+
+  val_freq: 20 #!!float 5e3
+  kernel_freq: 1 #!!float 5e3
+  manual_seed: 17
