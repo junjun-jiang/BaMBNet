@@ -1,0 +1,30 @@
+name: COCMAP_PARAM_TRAIN
+use_tb_logger: false
+model: MULTINET # reconstruct Defocus network.
+
+dataset:
+  test:
+    name: test
+    dataroot: ~/Documents/deblur/CanonDeblur/dd_dp_dataset_png
+    batch_size: 1
+    workers: 1
+    left_name: test_l/source
+    right_name: test_r/source
+    combine_name: test_c/target
+
+
+network_G:
+  in_nc: 3
+  block_num: 2
+  init: xavier
+  hidden_channels: 128
+  K: 4
+
+path:
+  pretrain_model_G: ~
+  strict_load: true
+  resume_state: /home/erfect/Documents/BaMBNet/experiments/BLUR_PARAM_TRAIN/models/7_models.pth
+
+logger:
+  print_freq: 10
+  save_checkpoint_freq: 20 #!!float 5e3
