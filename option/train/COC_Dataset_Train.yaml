@@ -38,8 +38,8 @@ network_G:
 path:
   pretrain_model_G: ~
   strict_load: true
-  resume_state: ~ #/home/lpw/Documents/BaMBNet/experiments/MODIFIED_PARAM_TRAIN/models/20_models.pth
-
+  resume_state: ~ 
+  
 logger:
   print_freq: 10
   save_checkpoint_freq: 1 #!!float 5e3
