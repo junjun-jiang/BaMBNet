@@ -1,4 +1,4 @@
-name: COCMAP_PARAM_TRAIN
+name: COCMAP_PARAM_TEST
 use_tb_logger: false
 model: MULTINET # reconstruct Defocus network.
 
@@ -23,7 +23,7 @@ network_G:
 path:
   pretrain_model_G: ~
   strict_load: true
-  resume_state: /home/erfect/Documents/BaMBNet/experiments/BLUR_PARAM_TRAIN/models/7_models.pth
+  resume_state: /home/erfect/Documents/BaMBNet/experiments/COCMAP_PARAM_TRAIN/models/7_models.pth
 
 logger:
   print_freq: 10
