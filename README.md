@@ -33,7 +33,7 @@ Please refer to the official repo at [Defocus deblurring using dual-pixel data](
   python blur_train.py -opt option/train/COC_Dataset_Train.yaml
   ```
 
-+ Step 2: generate the COC maps for deblurred training.
++ Step 2: prepare the COC maps for deblurring training.
 
   ```python
   python blur_test.py -opt option/test/COC_Dataset_Test.yaml
