@@ -120,6 +120,8 @@ class KernelEDNet(nn.Module):
         layer_res = torch.cat(feature_layer, dim=0).sum(dim=0)
         x = x + layer_res
         out = self.tail_hard(x)
+        
+        # out = out.clamp(-25,25) only training need.
 
         return [out]
 
