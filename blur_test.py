@@ -68,6 +68,5 @@ for test_data in tqdm(test_loader):
         recover_img = recover_img.permute(1, 2, 0).numpy().astype(np.uint16)
         save_img_path_gtr = os.path.join(img_dir,
                                         "{:s}_recover.png".format(root_name[0][0]))
-        recover_img.save(save_img_path_gtr)
         cv2.imwrite(save_img_path_gtr, recover_img)
 
