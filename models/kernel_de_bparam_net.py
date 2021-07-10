@@ -121,7 +121,7 @@ class KernelEDNet(nn.Module):
         x = x + layer_res
         out = self.tail_hard(x)
         
-        # out = out.clamp(-25,25) only training need.
+        # out = out.clamp(-24,24) only training need.
 
         return [out]
 
