@@ -26,6 +26,7 @@ opencv == 4.4.0
 ### Dataset
 
 Please refer to the official repo at [Defocus deblurring using dual-pixel data](https://github.com/Abdullah-Abuolaim/defocus-deblurring-dual-pixel).
+Note that the cropped small training dataset used in meta-learning can be found [Google Drive](https://drive.google.com/drive/folders/1OXHu8Eb9V5C0kT6R5Yzr712JCZ37BoEN?usp=sharing).
 
 ## Train
 
