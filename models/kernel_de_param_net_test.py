@@ -122,55 +122,10 @@ class KernelEDNet(nn.Module):
                 res_x = F.adaptive_avg_pool2d(x, xi.size()[2:])
                 xi = self.layer8[i](res_x + xi + xi_1)
                 layer_output[i] = xi
-            # layer_output1.append(self.layer1[i](x))
 
         for s in self.streams:
             torch.cuda.current_stream().wait_stream(s)
-        # layer_output2 = []
-        # for i in range(len(self.kernel_size)):
-        #     res_x = F.adaptive_avg_pool2d(x, layer_output1[i].size()[2:])
-        #     layer_output2.append(self.layer2[i](res_x+layer_output1[i]))
-        #
-        # layer_output3 = []
-        # for i in range(len(self.kernel_size)):
-        #     res_x = F.adaptive_avg_pool2d(x, layer_output2[i].size()[2:])
-        #     layer_output3.append(self.layer3[i](res_x+layer_output2[i]))
-        #
-        # layer_output4 = []
-        # for i in range(len(self.kernel_size)):
-        #     res_x = F.adaptive_avg_pool2d(x, layer_output3[i].size()[2:])
-        #     layer_output4.append(self.layer4[i](res_x+layer_output3[i]))
 
-        # layer_output5 = []
-        # for i in range(len(self.kernel_size)):
-        #     res_x = F.adaptive_avg_pool2d(x, layer_output4[i].size()[2:])
-        #     layer_output5.append(self.layer5[i](res_x + layer_output4[i]))
-        #
-        # layer_output6 = []
-        # for i in range(len(self.kernel_size)):
-        #     res_x = F.adaptive_avg_pool2d(x, layer_output5[i].size()[2:])
-        #     layer_output6.append(self.layer6[i](res_x+layer_output5[i] + layer_output3[i]))
-        #
-        # layer_output7 = []
-        # for i in range(len(self.kernel_size)):
-        #     res_x = F.adaptive_avg_pool2d(x, layer_output6[i].size()[2:])
-        #     layer_output7.append(self.layer7[i](res_x+layer_output6[i] + layer_output2[i]))
-        #
-        # layer_output = []
-        # for i in range(len(self.kernel_size)):
-        #     res_x = F.adaptive_avg_pool2d(x, layer_output7[i].size()[2:])
-        #     layer_output.append(self.layer8[i](res_x+layer_output7[i] + layer_output1[i]))
-
-        # feature_layer = []
-
-        # if gt is not None:
-        #     self.iter_num += 1
-
-#         if self.iter_num < self.MAX_TRAINNUM:
-#             iter_weight = torch.exp(torch.tensor(- (self.iter_num * 2 / self.MAX_TRAINNUM) ** 2))
-#             for layer_i, blur_i in zip(layer_output, blur_mask):
-#                 feature_layer.append((layer_i * blur_i * iter_weight + (1-iter_weight) * layer_i).unsqueeze(0))
-#         else:
         feature_layer = [layer_i.unsqueeze(0) for layer_i in layer_output]
         layer_res = torch.cat(feature_layer, dim=0).sum(dim=0)
         x = x + layer_res
