@@ -1,5 +1,6 @@
 # BaMBNet-Pytorch
 Paper: https://arxiv.org/abs/2105.14766 (arXiv) 
+
        https://www.ieee-jas.net/en/article/doi/10.1109/JAS.2022.105563 (IEEE/CAA JAS) 
 
 The code is for the work:
