@@ -64,8 +64,8 @@ python test.py -opt option/test/Deblur_Dataset_Test.yaml
 ## Results
 
 + Results of [DPDD](https://drive.google.com/file/d/1xkRaaJbqH6R0Mv42Rea3nB4hkRmgodbj/view?usp=sharing)
-+ Results of [Pixel5](https://drive.google.com/file/d/1xkRaaJbqH6R0Mv42Rea3nB4hkRmgodbj/view?usp=sharing)
-+ Results of [dual_pixel_defocus_estimation_deblurring](https://drive.google.com/file/d/1xkRaaJbqH6R0Mv42Rea3nB4hkRmgodbj/view?usp=sharing)
++ Results of [Pixel5](https://drive.google.com/file/d/1WYGBDRLXEXXDhzzA7ZcFhKTTFHNmsp8c/view?usp=share_link)
++ Results of [dual_pixel_defocus_estimation_deblurring](https://drive.google.com/file/d/1Tz1kr4Y2fNzMWW396IS7LHcfbOEPMs7Q/view?usp=share_link)
 
 
 ## License
