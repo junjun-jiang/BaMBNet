@@ -7,7 +7,7 @@ The code is for the work:
 
 ```
 @article{liang2021BaMBNet,
-  title={BaMBNet: A Blur-aware Multi-branch Network for Defocus Deblurring},
+  title={BaMBNet: A Blur-Aware Multi-Branch Network for Dual-Pixel Defocus Deblurring},
   author={Pengwei Liang, Junjun Jiang, Xianming Liu, and Jiayi Ma},
   journal={IEEE/CAA Journal of Automatica Sinica},
   volume={},
